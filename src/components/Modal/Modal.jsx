@@ -1,27 +1,39 @@
 import Modal from 'react-modal';
 import PropTypes from 'prop-types';
-// import styled from 'styled-components';
 
-// const modalStyles = styled.div`
-//   position: fixed;
-//   top: 50;
-//   left: 0;
-//   width: 100vw;
-//   height: 100vh;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   z-index: 1200;
-// `;
+const modalStyles = {
+  overlay: {
+    position: 'fixed',
+    top: '0',
+    left: '0',
+    width: '100vw',
+    height: '100vh',
+    display: 'flex',
+    justifyContent: ' center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    zIndex: '1200',
+  },
+  content: {
+    maxWidth: 'calc(100vw - 48px)',
+    maxHeight: 'calc(100vh - 24px)',
+    position: 'relative',
+    padding: '0',
+    backgroundColor: 'transparent',
+    border: 'none',
+    outline: 'none',
+    overflow: 'hidden',
+  },
+};
 
-// Modal.setAppElement('#root');
+Modal.setAppElement('#root');
 
 export const ModalImage = ({ selectImage, resetImage }) => {
   return (
     <Modal
       isOpen={Boolean(selectImage)}
       onRequestClose={resetImage}
-      // style={modalStyles}
+      style={modalStyles}
     >
       <img src={selectImage} alt="Large" />
     </Modal>
