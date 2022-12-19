@@ -10,6 +10,7 @@ axios.defaults.params = {
   image_type: 'photo',
   orientation: 'horizontal',
   per_page: IMAGES_PER_PAGE,
+  total: 'total',
 };
 
 export const fetchImages = async (query, page) => {
@@ -22,3 +23,20 @@ export const fetchImages = async (query, page) => {
   const response = await axios.get('', config);
   return response.data;
 };
+
+// import PropTypes from 'prop-types';
+
+// export function fetchImages(query, page) {
+//   return fetch(`https://pixabay.com/api/?q=${query}&page=${page}&key=30416408-c6842ca729ef5a51b1af270dd&image_type=photo&orientation=horizontal&per_page=12
+// `).then(response => {
+//     if (response.ok) {
+//       return response.json();
+//     }
+//     return Promise.reject(new Error('Something went wrong! Please retry'));
+//   });
+// }
+
+// fetchImages.propTypes = {
+//   query: PropTypes.string.isRequired,
+//   page: PropTypes.number.isRequired,
+// };
